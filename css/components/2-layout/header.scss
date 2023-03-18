@@ -1,0 +1,92 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  transition: 0.3s ease;
+  .auto__container {
+    max-width: 1480px;
+  }
+  &.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation-name: sticky;
+    animation-duration: 0.4s;
+    background-color: $black;
+  }
+  &__inner {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 105px;
+      img {
+        width: 100%;
+      }
+    }
+    & > .button {
+      display: none;
+    }
+  }
+}
+// 1180px
+@mixin header-xlg-xxlg {
+  .header {
+    &__inner {
+      padding: 15px 0;
+      &-logo {
+        width: 90px;
+      }
+    }
+  }
+}
+// 1024px
+@mixin header-lg-xlg {
+  .header {
+    background-color: $black;
+    &__inner {
+      position: relative;
+      padding: 21px 0;
+
+      &-logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+    }
+  }
+}
+// 750px
+@mixin header-sm-md {
+  .header {
+    &__inner {
+      & > .button {
+        display: none;
+      }
+    }
+  }
+}
+// 540px
+@mixin header-xsm-sm {
+  .header {
+  }
+}
+@keyframes sticky {
+  0% {
+    top: -60px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
